@@ -1,0 +1,24 @@
+<body>
+  <h1 id="welcome-message"></h1>
+  <button id="logout-btn">Logout</button>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const name = localStorage.getItem("selectedProfileName");
+    const welcomeMessage = document.getElementById("welcome-message");
+
+    if (name) {
+      welcomeMessage.textContent = `שלום, ${name}`;
+    } else {
+     
+      window.location.href = "./login.html";
+    }
+
+    
+    document.getElementById("logout-btn").addEventListener("click", () => {
+      localStorage.clear(); 
+      window.location.href = "./login-js.html"; 
+    });
+  });
+  </script>
+</body>
