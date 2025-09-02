@@ -1,19 +1,20 @@
 /* profiles page */
-
+body{
+    font-family: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif;
+}
 .profiles-bg {
     min-height: 100vh;
     width: 100%;
     background-color: #141414;
-    /* base gray */
+
     background-image: linear-gradient(to bottom,
             #000000 0%,
-            /* black at very top */
+           
             #141414 10%,
-            /* fade into gray */
+          
             #141414 100%,
-            /* stay gray */
+          
             #000000 100%
-            /* black again at bottom */
         );
     display: flex;
     justify-content: center;
