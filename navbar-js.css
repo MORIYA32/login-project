@@ -6,12 +6,14 @@ body {
 }
 
 body {
-  background-image: url("https://occ-0-8214-784.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABahNefsfNHBYfmExWLBiEF7HX00Ux8PaoIsJVJKSgkhOpk1z2ZnsfhJovGSgJryVsDUjecF-C5Z9bBi4c61NjBvYgUdhQGNGsO5d.webp?r=bb3");
+  background-image: url("https://occ-0-8214-784.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABZcn_TfrEKVj2m5zvqjb-oNRCaW8TlOIKeC5L4QbSSTOLpAFL5H_o_LsnHcVnvfSVdy-Knn4ZQIZbr_E45BNKJYMkOuNMOrPOL8O.webp?r=a2a");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   height: 100vh;
 }
+
+/* Navbar design */
 
 .logo {
   width: 100px;
@@ -112,7 +114,9 @@ body {
   border: 1px solid #333;
 }
 
-@media (max-width: 991px) {
+/* Navbar responsiveness */
+
+@media (max-width: 883px) {
   .navbar {
     padding: 15px 3%;
   }
@@ -124,5 +128,107 @@ body {
   .navbar-icons a {
     display: flex;
     align-items: center;
+  }
+}
+
+/* Trailer section design */
+
+.trailer-section {
+  padding-top: 80px;
+  padding-left: 3%;
+  padding-right: 3%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.trailer-content {
+  max-width: 500px;
+}
+
+.show-title {
+  width: 600px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.plot-summary {
+  color: white;
+  font-size: 24px;
+  line-height: 1.4;
+  margin-bottom: 30px;
+  font-weight: 400;
+}
+
+.trailer-buttons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.play-btn,
+.info-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 32px;
+  font-size: 35px;
+  font-weight: 600;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.play-btn {
+  background-color: #fefffe;
+  color: black;
+}
+
+.play-btn:hover {
+  background-color: rgba(254, 255, 254, 0.8);
+  color: black;
+}
+
+.info-btn {
+  background-color: rgba(91, 83, 81, 0.7);
+  color: white;
+}
+
+.info-btn:hover {
+  background-color: rgba(91, 83, 81, 0.5);
+  color: white;
+}
+
+.age-rating {
+  position: absolute;
+  right: 0;
+  bottom: 200px;
+  background-color: rgba(50, 50, 50, 0.8);
+  color: #fefffe;
+  padding: 8px 12px;
+  border-radius: 0;
+  border-left: 4px solid #fefffe;
+  font-size: 24px;
+  font-weight: lighter;
+}
+
+@media (max-width: 768px) {
+  .trailer-section {
+    padding-top: 120px;
+  }
+
+  .plot-summary {
+    font-size: 16px;
+  }
+
+  .play-btn .info-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+
+  .age-rating {
+    bottom: 150px;
+    right: 5%;
   }
 }
