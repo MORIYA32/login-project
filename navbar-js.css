@@ -22,16 +22,11 @@ body {
 
 .navbar {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0));
-  padding: 0 3%;
+  padding: 0.5% 3%;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
-}
-
-#navbarNav {
-  padding-top: 15px;
-  padding-left: 15px;
 }
 
 .navbar-nav .nav-link,
@@ -53,9 +48,9 @@ body {
   object-fit: cover;
 }
 
+
 .profile-dropdown {
   position: relative;
-  margin-left: 15px;
 }
 
 .dropdown-menu {
@@ -90,6 +85,7 @@ body {
   border: 2px solid black;
 }
 
+
 .nav-sign-out {
   color: white;
   display: block;
@@ -121,13 +117,18 @@ body {
     padding: 15px 3%;
   }
 
+@media (max-width: 992px) {
   .navbar-icons {
-    gap: 15px;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 0;
+    padding-top: 10px;
   }
 
-  .navbar-icons a {
-    display: flex;
-    align-items: center;
+  .profile-dropdown:hover .dropdown-menu {
+    position: static;
+    display: block;
+    width: 100%;
   }
 }
 
@@ -231,4 +232,17 @@ body {
     bottom: 150px;
     right: 5%;
   }
+
+  .dropdown-menu li a {
+    padding: 10px;
+  }
+}
+
+
+.navbar-toggler {
+  border-color: black;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='black' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }

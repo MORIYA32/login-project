@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Watch</title>
-
   <link rel="icon" type="image/x-icon" href="https://assets.nflxext.com/ffe/siteui/common/icons/nficon2016.ico">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -257,23 +256,30 @@
           </a>
           <div class="profile-dropdown">
             <a href="#" class="profile d-flex align-items-center gap-2">
-              <img
+              <img id="navbar-profile-pic"
                 src="https://occ-0-8214-784.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABT8sUMuSqctHteshq7njO_5-LpEDZEJxml-D7fyKkuadlRmsdTGg4rzZEscPdpdHROTubpN_v4E8wlAi94qmetsgUeiZxjmz9A.png?r=5eb"
                 alt="Profile" class="profile-pic">
               <i class="fas fa-caret-down"></i>
-            </a>
-            <ul class="dropdown-menu list-unstyled">
-              <li>
-                <a href="#"><img
-                    src="https://occ-0-8214-784.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABfBs_RmrXu6XN02hkLZzUgrqSOMFIx6LUk_-T4dG4Vgr7rwnmYyejpUUebFqmVDbnrwxESqJu6ml0q-G6KQVzRqKA42KmNEPkDmn.png?r=f55"
-                    alt="Kids Profile" class="profile-avatar"> Kids</a>
-              </li>
-              <li><a href="#">Manage Profiles</a></li>
-              <li><a href="#">Transfer Profile</a></li>
-              <li><a href="#">Account</a></li>
-              <li><a href="#">Help Center</a></li>
-              <li><a href="#" class="nav-sign-out">Sign out of Netflix</a></li>
-            </ul>
+
+              <ul class="dropdown-menu list-unstyled">
+                <li>
+                  <a href="#"><img
+                      src="https://occ-0-8214-784.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABfBs_RmrXu6XN02hkLZzUgrqSOMFIx6LUk_-T4dG4Vgr7rwnmYyejpUUebFqmVDbnrwxESqJu6ml0q-G6KQVzRqKA42KmNEPkDmn.png?r=f55"
+                      alt="Kids Profile" class="profile-avatar"> Kids</a>
+                </li>
+                <li><a href="#"> <img
+                      src="https://occ-0-8214-784.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABT8sUMuSqctHteshq7njO_5-LpEDZEJxml-D7fyKkuadlRmsdTGg4rzZEscPdpdHROTubpN_v4E8wlAi94qmetsgUeiZxjmz9A.png?r=5eb"
+                      alt="Profile 2" class="profile-avatar">Moriya</a></li>
+                <li> <a href="#"><img
+                      src="https://occ-0-8214-784.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABdgqRu86LNrfFPuQ2Xhlz2NQehmsezXIx7HyVhyQXZ1wK8n97QjoJnDaiuKnWVnXclSIoqmrdlcXykFzFbnQP91p8rM-yxTFwQ.png?r=181"
+                      alt="Profile 1" class="profile-avatar">Tal</a></li>
+
+                <li><a href="#">Manage Profiles</a></li>
+                <li><a href="#">Transfer Profile</a></li>
+                <li><a href="#">Account</a></li>
+                <li><a href="#">Help Center</a></li>
+                <li><a href="#" class="nav-sign-out">Sign out of Netflix</a></li>
+              </ul>
           </div>
         </div>
       </div>
@@ -300,6 +306,7 @@
       const name = localStorage.getItem("selectedProfileName");
       const welcomeMessage = document.getElementById("welcome-message");
       const profileBg = document.getElementById("profile-bg");
+      const navbarProfilePic = document.getElementById("navbar-profile-pic"); 
 
       const profileImages = {
         "Tal": "https://occ-0-6315-784.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABVri3NZkbfWzaO6xZOvC1qwFNux0EtEtQmWO4dQdD4CZoK_HljXAP1tKQZegHcIMPS90YjZ37xyLlIuPVwoOeRfe_hjZa6iaVjGm.webp?r=571",
@@ -307,12 +314,22 @@
         "Kids": "https://occ-0-6315-784.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABY_BRzzpq4cXoyhyI25oTB9vVKWYGuucH7YpMdEhMlV8Xnj-apOzode-nO8k1cKg8IguSEyzV7GnuT8ra6kProC6R9ggBWosye9n.webp?r=c62"
       };
 
-      if (name) {
-        welcomeMessage.textContent = `Hello ${name}`;
-        profileBg.src = profileImages[name] || "images/default.png";
-      } else {
+      if (!name) {
         window.location.href = "./login.html";
+        return;
       }
+
+
+      welcomeMessage.textContent = `Hello ${name}`;
+
+
+      profileBg.src = profileImages[name] || "images/default.png";
+
+
+      if (navbarProfilePic) {
+        navbarProfilePic.src = profileImages[name] || "images/default.png";
+      }
+
 
       const categories = [
         {
@@ -349,7 +366,7 @@
         cat.contents.forEach(item => {
           const itemDiv = document.createElement("div");
           itemDiv.className = "content-item";
-          itemDiv.innerHTML = `<img src="${item.img}" alt=""><p>`;
+          itemDiv.innerHTML = `<img src="${item.img}" alt=""><p></p>`;
           rowDiv.appendChild(itemDiv);
 
           itemDiv.addEventListener("click", () => {
@@ -361,12 +378,23 @@
         categoriesDiv.appendChild(catDiv);
       });
 
+
       document.getElementById("logout-btn").addEventListener("click", () => {
         localStorage.clear();
         window.location.href = "./login-js.html";
       });
     });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const avatar = localStorage.getItem("selectedProfileAvatar");
+      const navbarPic = document.getElementById("navbar-profile-pic");
+
+      if (avatar && navbarPic) {
+        navbarPic.src = avatar;
+      }
+    });
   </script>
+
 </body>
 
 </html>
