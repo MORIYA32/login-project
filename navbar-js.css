@@ -232,3 +232,144 @@ body {
     right: 5%;
   }
 }
+
+/* Feed section design */
+
+.movie-feed {
+  background-color: #141414;
+  padding: 60px 3% 40px;
+  min-height: 100vh;
+}
+
+.section-title {
+  color: white;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.shows-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.movie-card {
+  background-color: #222;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.movie-poster {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(135deg, #e50914, #b81d24);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.movie-info {
+  padding: 15px;
+  color: white;
+}
+
+.movie-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.movie-details {
+  font-size: 14px;
+  color: #b3b3b3;
+  margin-bottom: 15px;
+}
+
+.movie-genre {
+  display: inline-block;
+  background-color: #333;
+  color: #e50914;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.like-btn {
+  background: none;
+  border: 2px solid #666;
+  color: #666;
+  padding: 8px 15px;
+  border-radius: 25px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.like-btn:hover {
+  border-color: #e50914;
+  color: #e50914;
+}
+
+.like-btn.liked {
+  background-color: #e50914;
+  border-color: #e50914;
+  color: white;
+}
+
+.heart-icon {
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+.heart-animation {
+  animation: heartBeat 0.6s ease-in-out;
+}
+
+@keyframes heartBeat {
+  0% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(1.3);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  75% {
+    transform: scale(1.25);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+
+  .shows-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+  }
+
+  .section-title {
+    font-size: 24px;
+  }
+}
