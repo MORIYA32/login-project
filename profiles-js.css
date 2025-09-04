@@ -1,7 +1,8 @@
 /* profiles page */
-body{
+body {
     font-family: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif;
 }
+
 .profiles-bg {
     min-height: 100vh;
     width: 100%;
@@ -9,13 +10,12 @@ body{
 
     background-image: linear-gradient(to bottom,
             #000000 0%,
-           
+
             #141414 10%,
-          
+
             #141414 100%,
-          
-            #000000 100%
-        );
+
+            #000000 100%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,7 +45,7 @@ body{
 }
 
 .profile-avatar {
-        min-width:84px;
+    min-width: 84px;
     width: 10vw;
     height: auto;
     display: block;
@@ -103,15 +103,17 @@ body{
 }
 
 .add-profile-card:hover .profile-avatar {
-  border: none !important;
+    border: none !important;
 }
 
-@media (max-width: 840px){        
-        .profile-name, .add-profile-swap{
-            font-size: 11px;
-        }
+@media (max-width: 840px) {
 
-        .profiles-title{
-            font-size: 30px;
-        }
+    .profile-name,
+    .add-profile-swap {
+        font-size: 11px;
+    }
+
+    .profiles-title {
+        font-size: 30px;
+    }
 }

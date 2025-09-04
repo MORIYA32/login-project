@@ -47,8 +47,10 @@
       font-size: 35px;
       margin-bottom: 40px;
       text-align: center;
-      color: #e50914;
+      color:white;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+      font-weight: 600;
+      margin-top: 17px;
     }
 
     .category {
@@ -191,33 +193,87 @@
     }
 
 
-    @media (max-width: 992px) {
-      .navbar-icons {
-        flex-direction: column;
-        gap: 10px;
-        margin-left: 0;
-        padding-top: 10px;
-      }
-
-      .profile-dropdown:hover .dropdown-menu {
-        position: static;
-        display: block;
-        width: 100%;
-      }
-
-      .dropdown-menu li a {
-        padding: 10px;
-      }
-    }
+@media (max-width: 992px) {
 
 
-    .navbar-toggler {
-      border-color: black;
-    }
+  .navbar-collapse {
+    background-color: #141414;
+    padding: 10px;
+  }
 
-    .navbar-toggler-icon {
-      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='black' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-    }
+
+  .content-row {
+    flex-direction: column;
+    overflow-x: hidden;
+    gap: 20px;
+  }
+
+  .content-item {
+    min-width: 100%;
+  }
+
+  #container {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .logout-btn {
+    display: block;
+    margin: 30px auto 0 auto;
+  }
+
+  h1#welcome-message {
+    padding-top: 20px;
+    text-align: center;
+    font-size: 28px;
+  }
+
+ 
+  .navbar-icons {
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    position: static; 
+    margin-top: 10px;
+  }
+
+  .profile-dropdown .dropdown-menu {
+    display: none; 
+    position: static;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    background-color: #141414;
+    border-radius: 5px;
+  }
+
+  .profile-dropdown .dropdown-menu .navbar-icons {
+    margin: 10px 0;
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
+  }
+
+ 
+  .profile-pic, 
+  .dropdown-menu .navbar-icons i,
+  .dropdown-menu .navbar-icons svg {
+    width: 25px;
+    height: 25px;
+  }
+
+  .profile-dropdown.active .dropdown-menu {
+    display: block;
+    animation: fadeIn 0.2s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}
+
+
   </style>
 </head>
 
@@ -306,7 +362,7 @@
       const name = localStorage.getItem("selectedProfileName");
       const welcomeMessage = document.getElementById("welcome-message");
       const profileBg = document.getElementById("profile-bg");
-      const navbarProfilePic = document.getElementById("navbar-profile-pic"); 
+      const navbarProfilePic = document.getElementById("navbar-profile-pic");
 
       const profileImages = {
         "Tal": "https://occ-0-6315-784.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABVri3NZkbfWzaO6xZOvC1qwFNux0EtEtQmWO4dQdD4CZoK_HljXAP1tKQZegHcIMPS90YjZ37xyLlIuPVwoOeRfe_hjZa6iaVjGm.webp?r=571",
@@ -368,10 +424,6 @@
           itemDiv.className = "content-item";
           itemDiv.innerHTML = `<img src="${item.img}" alt=""><p></p>`;
           rowDiv.appendChild(itemDiv);
-
-          itemDiv.addEventListener("click", () => {
-            alert(`You clicked on "${item.title}"`);
-          });
         });
 
         catDiv.appendChild(rowDiv);

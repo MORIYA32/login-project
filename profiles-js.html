@@ -44,7 +44,8 @@
         </div>
 
     </div>
-<script>
+
+    <script>
 document.addEventListener("DOMContentLoaded", () => {
   const profiles = [
     { id: 1, name: "Tal", avatar: "https://occ-0-8214-784.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABdgqRu86LNrfFPuQ2Xhlz2NQehmsezXIx7HyVhyQXZ1wK8n97QjoJnDaiuKnWVnXclSIoqmrdlcXykFzFbnQP91p8rM-yxTFwQ.png?r=181" },
@@ -56,15 +57,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   profileCards.forEach((card, index) => {
     card.addEventListener("click", () => {
-
+  
       if (!card.classList.contains("add-profile-card")) {
         const selectedProfile = profiles[index];
-
+   
         localStorage.setItem("selectedProfileId", selectedProfile.id);
         localStorage.setItem("selectedProfileName", selectedProfile.name);
-        localStorage.setItem("selectedProfileAvatar", selectedProfile.avatar); 
+        localStorage.setItem("selectedProfileAvatar", selectedProfile.avatar);
 
-      
         window.location.href = "./watch-js.html";
       } else {
         alert("Add Profile clicked!");
