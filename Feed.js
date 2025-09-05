@@ -76,7 +76,7 @@ const moviesData = [
     {
         id: 9,
         title: "Gilmore Girls",
-        year: 206,
+        year: 2006,
         genre: "Romantic, Drama, Teens",
         type: "Series",
         likes: 0,
@@ -384,6 +384,54 @@ function hideSearchResults() {
     searchResults.style.display = 'none';
 }
 
+// Sort functionality
+function sortMovies(criteria) {
+    let sortedMovies = [...moviesData];
+
+    switch(criteria) {
+        case 'year':
+            sortedMovies.sort((a, b) => b.year - a.year);
+            break;
+        case 'az':
+            sortedMovies.sort((a, b) => a.title.localeCompare(b.title, undefined, { sensitivity: "base" }));
+            break;
+        case 'za':
+            sortedMovies.sort((a, b) => b.title.localeCompare(a.title, undefined, { sensitivity: "base" }));
+            break;
+    }
+
+    renderSortedMovies(sortedMovies);
+}
+
+function renderSortedMovies(movies) {
+    const showsGrid = document.getElementById('showsGrid');
+    showsGrid.innerHTML = '';
+
+    movies.forEach(movie => {
+        const movieCard = document.createElement('div');
+        movieCard.className = 'movie-card';
+
+        const userHasLiked = userLikes[movie.id] || false;
+
+        movieCard.innerHTML = `
+        <div class="movie-poster">
+            <img src="${movie.poster}" alt="${movie.title} poster">
+        </div>
+        <div class="movie-info">
+            <div class="movie-title">${movie.title}</div>
+            <div class="movie-details">${movie.year} • ${movie.type}</div>
+            <div class="movie-genre">${movie.genre}</div>
+            <button class="like-btn ${userHasLiked ? 'liked' : ''} onclick="toggleLike(${movie.id})" data-movie-id="${movie.id}">
+                <i class="heart-icon ${userHasLiked ? 'fas' : 'far'} fa-heart"></i>
+                ${movie.likes} ${movie.likes === 1 ? 'like' : 'likes'}
+            </button>
+        </div>
+        `;
+
+        showsGrid.appendChild(movieCard);
+    });
+}
+
 // Initialize the page
 document.addEventListener('DOMContentLoaded', function () {
     loadLikesFromStorage();
@@ -412,5 +460,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 hideSearchResults();
             }
         }, 200);
+    });
+
+    //Sort event listener
+    const sortSelect = document.getElementById('sortSelect');
+    sortSelect.addEventListener('change', function(e) {
+        sortMovies(e.target.value);
     });
 });

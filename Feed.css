@@ -289,11 +289,50 @@ body {
   min-height: 100vh;
 }
 
+.feed-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
 .section-title {
   color: white;
   font-size: 28px;
   font-weight: 500;
-  margin-bottom: 30px;
+  margin-bottom: 0;
+}
+
+.sort-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sort-label {
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.sort-select {
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 1pxsolid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.sort-select:focus {
+  outline: none;
+  border-color: white;
+}
+
+.sort-select option {
+  background-color: #141414;
+  color: white;
 }
 
 .shows-grid {

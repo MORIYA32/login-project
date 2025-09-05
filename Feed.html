@@ -160,7 +160,18 @@
 
   <div class="feed" id="mainFeed">
     <div class="container-fluid">
-      <h2 class="section-title">Welcome!</h2>
+      <div class="feed-header">
+        <h2 class="section-title">Welcome!</h2>
+        <div class="sort-container">
+          <label class="sort-label" for="sortSelect">Sort by:</label>
+          <select class="sort-select" id="sortSelect">
+            <option calue="choose">-- Choose --</option>
+            <option value="year">Year of release</option>
+            <option value="az">A-Z</option>
+            <option value="za">Z-A</option>
+          </select>
+        </div>
+      </div>
       <div class="shows-grid" id="showsGrid">
         <!-- Shows load dynamically here -->
       </div>
